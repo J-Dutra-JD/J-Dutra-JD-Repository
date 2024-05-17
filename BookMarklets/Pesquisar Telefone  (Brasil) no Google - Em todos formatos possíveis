@@ -1,0 +1,20 @@
+javascript: 
+v=prompt('Digite o DDD e o número do telefone (fixo ou celular) para pesquisar:','');
+const numeros = v.replace(/\D/g, '');
+vDDD=numeros.slice(0,2);
+vN1="";
+vN3="";
+if(numeros.length === 11){
+	vN1=numeros.slice(3,7);
+	vN2=numeros.slice(7,11);
+	vN3=" OR \""+vDDD+vN1+vN2+"\" OR \""+vDDD+" "+vN1+vN2+"\" OR \""+vDDD+" "+vN1+"-"+vN2+"\" OR \"("+vDDD+")"+vN1+vN2+"\" OR \"("+vDDD+") "+vN1+vN2+"\" OR \"("+vDDD+") "+vN1+"-"+vN2+"\"";
+	vN1=numeros.slice(2,7);
+}else if(numeros.length === 10){
+	vN1=numeros.slice(2,6);
+	vN2=numeros.slice(6,10);
+}
+if(vN1){ 
+	location.href="http://www.google.com/search?&q=\""+numeros+"\" OR \""+vDDD+" "+vN1+vN2+"\" OR \""+vDDD+" "+vN1+"-"+vN2+"\" OR \"("+vDDD+")"+vN1+vN2+"\" OR \"("+vDDD+") "+vN1+vN2+"\" OR \"("+vDDD+") "+vN1+"-"+vN2+"\""+vN3
+}else{
+	alert("ERRO! Número não contém o número de caracteres adequados!")
+}
