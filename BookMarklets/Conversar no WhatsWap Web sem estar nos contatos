@@ -1,0 +1,20 @@
+javascript: 
+v=prompt('Digite o número do telefone:','');
+const numeros = v.replace(/\D/g, '');
+vN="";
+if(numeros.length === 11){
+	vN=numeros;
+}else if(numeros.length === 10){
+	vDDD=numeros.slice(0,2);
+	vN1=numeros.slice(2,10);
+	vN=vDDD+"9"+vN1;
+}else if(numeros.length === 9){
+	vN="53"+numeros;
+}else if(numeros.length === 8){
+	vN="539"+numeros;
+}
+if(vN){ 
+	location.href="https://web.whatsapp.com/send?phone=55"+vN
+}else{
+	alert("ERRO! Número não contém o número de caracteres adequados!")
+}
